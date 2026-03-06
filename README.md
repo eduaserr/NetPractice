@@ -82,6 +82,7 @@
 **Objetive**:
 
 **concepts learned**:
+- Create a subnet inside another network.
 - Manage multiple routes.
 
 ![alt text](src/ex08.png)
