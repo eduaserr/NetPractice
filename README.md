@@ -301,8 +301,19 @@ AI was used for:
 
 ## 💡 Tips for Success
 
-1. **Subnet Calculators**: Use online tools to verify your subnet calculations.
-2. **Network Diagrams**: Draw the topology on paper to visualize connections.
+1. **Quick IP Range Calculation**: To check if two IPs share the same network (with same mask):
+   - **Step 1**: Calculate block size → `256 - (last mask number)`
+   - **Step 2**: Divide last IP number by block size, **ignore decimals**
+   - **Step 3**: Multiply that whole number by block size = network start
+   
+   **Example**: Are `192.168.1.75/27` and `192.168.1.45/27` in the same network?
+   - Mask `/27` = `255.255.255.224`
+   - Block size: `256 - 224 = 32`
+   - For IP ending in `.75`: `75 ÷ 32 = 2.34` → keep only **2** → `2 × 32 = 64`
+   - For IP ending in `.45`: `45 ÷ 32 = 1.40` → keep only **1** → `1 × 32 = 32`
+   - **Result**: Network starts at 64 vs 32 → **Different networks!**
+
+2. **Subnet Calculators**: Use online tools to verify your calculations.
 3. **Step-by-Step**: Test each connection individually before moving to complex scenarios.
 4. **Route Specificity**: Remember that more specific routes (larger prefix) take precedence.
 5. **IP Conflicts**: Ensure no two devices share the same IP address.
